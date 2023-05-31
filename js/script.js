@@ -5,7 +5,7 @@ let numberOfFilms;
 function start() {
      numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
 
-     while (numberOfFilms === '' || numberOfFilms == null || isNaN(numberOfFilms)) {
+     while (numberOfFilms === '' || numberOfFilms == null || isNaN(numberOfFilms) || numberOfFilms === 0) {
          numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
      }
 }
@@ -39,9 +39,9 @@ rememberMyFilms();
 function detectPersonalLevel() {
     if (personalMovieDB.count < 10) {
         alert('Мало');
-    } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+    } else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
         alert('Класика');
-    } else  if (personalMovieDB.count >=50) {
+    } else  if (personalMovieDB.count >31) {
         alert('Киноман');
     } else {
         alert('Ошибка');
@@ -56,7 +56,7 @@ function showMyDB(boolean) {
     }
 }
 
-showMyDB(personalMovieDB.privat);
+// showMyDB(personalMovieDB.privat);
 
 function writeYourGenres() {
     for (let i = 1; i <= 3; i++) {
